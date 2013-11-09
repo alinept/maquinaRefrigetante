@@ -12,11 +12,11 @@ public class Refrigerante {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Double getPreço() {
+	public Double getPreco() {
 		return preco;
 	}
-	public void setPreço(Double preço) {
-		this.preco = preço;
+	public void setPreco(Double preco) {
+		this.preco = preco;
 	}
 	public Integer getCodigo() {
 		return codigo;
