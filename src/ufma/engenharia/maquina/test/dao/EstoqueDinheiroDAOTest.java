@@ -1,6 +1,5 @@
 package ufma.engenharia.maquina.test.dao;
 
-import junit.framework.Assert;
 
 import org.junit.Test;
 
