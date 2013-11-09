@@ -1,4 +1,69 @@
-<?page title="Máquina de Refrigerantes"?>
-<window title="Hello World!!" border="normal" width="200px">
+<?page title="MAQUINA DE REFRIGERANTES" contentType="text/html;charset=UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+	<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
 
-</window>
+
+	<div align="center">
+		<separator height="30px" />
+		<window border="normal" width="60%" id="win">
+			<style>
+				body { padding: 0 0;
+				background-image:url(${c:encodeURL('/images/background.png')
+				}); /* 0 padding on top and bottom and 0 padding on
+				right and left */ }
+			</style>
+
+
+			<div align="left">
+				<div>
+
+					<hbox>
+						<vbox>
+							<separator height="20px" />
+							<label value="Máquina de Refrigerantes"
+								style="font-size:30px; font-weight: bold; font-style:italic; align: center; text-shadow: 4px 4px 3px #CDC9C9" />
+						</vbox>
+					</hbox>
+					<separator bar="true" />
+				</div>
+				<separator height="30px" />
+				<groupbox>
+					<caption label="Escolha o refrigerante" />
+					<separator height="10px" />
+					<vbox>
+
+							<div align="center">
+								<hbox>
+									<image src="images/coca.jpg"
+										width="80px" height="80px" />
+									<image src="images/guarana.jpg"
+										width="60px" height="100px" />
+									<image src="images/jesus.jpg"
+										width="60px" height="100px" />
+									<image src="images/sprite.jpg"
+										width="100px" height="100px" />
+
+								</hbox>
+							</div>
+							<separator height="20px"/>
+							<hbox>
+							<div align="right" width="150px">
+								<label value="Glicose: " />
+							</div>
+							<textbox width="200px"
+								value="@{win.input.glicose }" />
+							<separator />
+							<label id="labelGlicose"
+								value="taxa de glicose no plasma sanguíneo" visible="false" />
+						</hbox>
+					</vbox>
+				</groupbox>
+
+
+			</div>
+		</window>
+	</div>
+</zk>

@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Venda {
 
+	private Integer codigo;
 	private Refrigerante refrigerante;
 	private List<Dinheiro> valorRecebido;
 	private List<Dinheiro> troco;
@@ -25,6 +26,12 @@ public class Venda {
 	}
 	public void setTroco(List<Dinheiro> troco) {
 		this.troco = troco;
+	}
+	public Integer getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 	
 		
