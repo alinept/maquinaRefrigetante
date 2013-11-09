@@ -25,6 +25,5 @@ public class Refrigerante {
 		this.codigo = codigo;
 	}
 	
-	
 
 }

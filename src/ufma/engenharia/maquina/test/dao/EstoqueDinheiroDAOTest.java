@@ -1,6 +1,8 @@
 package ufma.engenharia.maquina.test.dao;
 
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import ufma.engenharia.maquina.dao.EstoqueDinheiroDAO;
@@ -20,9 +22,8 @@ public class EstoqueDinheiroDAOTest {
 		dinheiro.setCodigo(1);
 		dinheiro.setTipo(TipoDinheiro.Moeda);
 		dinheiro.setValor(0.25);
-		
-		estoqueDinheiroDAO.atualiza(dinheiro, 9);
-		
+				
+		assertEquals(true,estoqueDinheiroDAO.atualiza(dinheiro, 9));
 	}
 	
 
