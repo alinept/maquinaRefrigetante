@@ -1,58 +1,40 @@
 package ufma.engenharia.maquina.conexao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 
 public class Conexao {
-	
-	private static String driver = null;
-	private static String url = null;
-	private static String user = null;
-	private static String password = null;
-	
-	private static Connection conexao = null;
 
-	public static String getDriver() {
-		return driver;
+	public static Connection open()
+	{
+		String driver = "org.postgresql.Driver";  
+        String user   = "postgres";  
+        String senha  = "postgres";  
+        String url    = "jdbc:postgresql://localhost:5432/BDMAQUINA";  
+  
+        try  
+        {  
+            Class.forName(driver);  
+            Connection con = null;  
+  
+            con = (Connection) DriverManager.getConnection(url, user, senha);  
+  
+            System.out.println("Conexão realizada com sucesso.");  
+  
+            return con;
+        }  
+        catch (ClassNotFoundException ex)  
+        {  
+            System.err.print(ex.getMessage());  
+        }   
+        catch (SQLException e)  
+        {  
+            System.err.print(e.getMessage());  
+        }  
+        
+        return null;
 	}
-
-	public static void setDriver(String driver) {
-		Conexao.driver = driver;
-	}
-
-	public static String getUrl() {
-		return url;
-	}
-
-	public static void setUrl(String url) {
-		Conexao.url = url;
-	}
-
-	public static String getUser() {
-		return user;
-	}
-
-	public static void setUser(String user) {
-		Conexao.user = user;
-	}
-
-	public static String getPassword() {
-		return password;
-	}
-
-	public static void setPassword(String password) {
-		Conexao.password = password;
-	}
-
-	public static Connection getConexao() {
-		return conexao;
-	}
-
-	public static void setConexao(Connection conexao) {
-		Conexao.conexao = conexao;
-	}
-	
-	
-	
-	
 }
+

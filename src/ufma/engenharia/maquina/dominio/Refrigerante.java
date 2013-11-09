@@ -4,7 +4,7 @@ public class Refrigerante {
 	
 	private Integer codigo;
 	private String nome;
-	private Double preço;
+	private Double preco;
 	
 	public String getNome() {
 		return nome;
@@ -13,10 +13,10 @@ public class Refrigerante {
 		this.nome = nome;
 	}
 	public Double getPreço() {
-		return preço;
+		return preco;
 	}
 	public void setPreço(Double preço) {
-		this.preço = preço;
+		this.preco = preço;
 	}
 	public Integer getCodigo() {
 		return codigo;
