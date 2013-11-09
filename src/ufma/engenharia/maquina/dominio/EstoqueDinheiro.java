@@ -1,0 +1,23 @@
+package ufma.engenharia.maquina.dominio;
+
+public class EstoqueDinheiro {
+	
+	private Dinheiro dinheiro;
+	private Integer quantidade;
+	
+	public Dinheiro getDinheiro() {
+		return dinheiro;
+	}
+	public void setDinheiro(Dinheiro dinheiro) {
+		this.dinheiro = dinheiro;
+	}
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
+	}
+	
+	
+
+}
