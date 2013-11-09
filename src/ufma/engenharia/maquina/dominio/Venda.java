@@ -8,6 +8,7 @@ public class Venda {
 	private Refrigerante refrigerante;
 	private List<Dinheiro> valorRecebido;
 	private List<Dinheiro> troco;
+	private Double valorTotal;
 	
 	public Refrigerante getRefrigerante() {
 		return refrigerante;
@@ -32,6 +33,12 @@ public class Venda {
 	}
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
+	}
+	public Double getValorTotal() {
+		return valorTotal;
+	}
+	public void setValorTotal(Double valorTotal) {
+		this.valorTotal = valorTotal;
 	}
 	
 		

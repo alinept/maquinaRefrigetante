@@ -48,21 +48,52 @@
 
 								</hbox>
 							</div>
-							<separator height="20px"/>
+							<separator height="5px"/>
 							<hbox>
-							<div align="right" width="150px">
-								<label value="Glicose: " />
+							<div align="right" width="100px">
+								<label value="Refrigerante Escolhido: " />
 							</div>
 							<textbox width="200px"
-								value="@{win.input.glicose }" />
+								value="@{win.refrigerante.nome }" />
 							<separator />
-							<label id="labelGlicose"
-								value="taxa de glicose no plasma sanguíneo" visible="false" />
+							
 						</hbox>
 					</vbox>
 				</groupbox>
-
-
+				<separator height="20px"/>
+				<groupbox>
+					<caption label="Dinheiro Recebido" />
+					<separator height="10px" />
+					<vbox>
+						<hbox>
+							<div align="right" width="100px">
+								<label value="Moeda/Cédula: " />
+							</div>
+							<combobox width="200px"/>
+							<separator />
+							
+						</hbox>
+						
+						
+					</vbox>
+				</groupbox>
+				<separator height="20px"/>
+				<div align="center">
+					<button label="Comprar"/>
+				</div>
+				<separator height="20px"/>
+				<groupbox>
+					<caption label="Troco" />
+					<separator height="10px" />
+					<vbox>
+						<div align="center">
+							<textbox width="200px"/>
+							<separator />
+						</div>
+						
+					</vbox>
+				</groupbox>
+				
 			</div>
 		</window>
 	</div>
