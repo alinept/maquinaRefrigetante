@@ -2,6 +2,7 @@ package ufma.engenharia.maquina.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import ufma.engenharia.maquina.conexao.Conexao;
@@ -36,7 +37,28 @@ public class EstoqueDinheiroDAOImpl implements EstoqueDinheiroDAO{
 
 	@Override
 	public int retornaQuantidade(Dinheiro dinheiro) {
-		return 0;
+		
+		ResultSet rs = null;
+		int quantidade = 0;
+		
+		String sql = "select * from estoque_dinheiro where id_dinheiro ="+dinheiro.getCodigo();
+		
+		try {
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				quantidade = rs.getInt("quantidade");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return quantidade;
 	}
 	
 }

@@ -3,6 +3,7 @@ package ufma.engenharia.maquina.test.dao;
 
 import static org.junit.Assert.*;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import ufma.engenharia.maquina.dao.EstoqueDinheiroDAO;
@@ -15,6 +16,7 @@ public class EstoqueDinheiroDAOTest {
 	public EstoqueDinheiroDAO estoqueDinheiroDAO;
 	
 	@Test
+	@Ignore
 	public void atualiza()
 	{
 		estoqueDinheiroDAO = new EstoqueDinheiroDAOImpl();
@@ -26,5 +28,14 @@ public class EstoqueDinheiroDAOTest {
 		assertEquals(true,estoqueDinheiroDAO.atualiza(dinheiro, 9));
 	}
 	
+	@Test
+	public void retornaQuantidade()
+	{
+		estoqueDinheiroDAO = new EstoqueDinheiroDAOImpl();
+		Dinheiro dinheiro = new Dinheiro();
+		dinheiro.setCodigo(1);
+		
+		assertEquals(9,estoqueDinheiroDAO.retornaQuantidade(dinheiro));
+	}
 
 }
