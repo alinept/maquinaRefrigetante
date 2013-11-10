@@ -6,5 +6,7 @@ public interface EstoqueRefrigeranteDAO {
 
 	public boolean atualiza(Refrigerante refrigerante, int quantidade, Double temperatura);
 	public int retornaQuantidade(Refrigerante refrigerante);
+	public double retornaTemperatura(Refrigerante refrigerante);
+	
 
 }
