@@ -41,13 +41,14 @@
 							<div align="center">
 								<hbox>
 									<image src="images/coca.jpg"
-										width="80px" height="80px" />
+										width="80px" height="80px" onClick=""/>
 									<image src="images/guarana.jpg"
-										width="60px" height="100px" />
+										width="60px" height="100px" onClick=""/>
 									<image src="images/jesus.jpg"
-										width="60px" height="100px" />
+										width="60px" height="100px" onClick=""/>
 									<image src="images/sprite.jpg"
-										width="100px" height="100px" />
+										width="100px" height="100px" onClick=""/>
+										
 									<listbox id="listRefrigerantes" model="@{win.refris}" width="300px">
 										<listhead>
 											<listheader

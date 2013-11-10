@@ -1,0 +1,62 @@
+<?page title="MAQUINA DE REFRIGERANTES" contentType="text/html;charset=UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+	<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+
+
+	<div align="center">
+		<separator height="30px" />
+		<window border="normal" width="70%" height="300px" id="win">
+			<style>
+				body { padding: 0 0;
+				background-image:url(${c:encodeURL('/images/background.png')
+				}); /* 0 padding on top and bottom and 0 padding on
+				right and left */ }
+			</style>
+
+
+			<div align="left">
+				<div>
+
+					<hbox>
+						<vbox>
+							<separator height="20px" />
+							<hbox>
+							<separator width="20px"/>
+							<label value="Máquina de Refrigerantes"
+								style="font-size:30px; font-weight: bold; font-style:italic; align: center; text-shadow: 4px 4px 3px #CDC9C9" />
+							</hbox>
+						</vbox>
+					</hbox>
+					<separator bar="true" />
+				</div>
+				<separator height="20px"/>
+				<groupbox>
+					<caption label="Login" />
+					<separator height="10px" />
+					<vbox>
+						<hbox>
+							<div align="right" width="100px">
+								<label value="Login: " />
+							</div>
+							<textbox width="200px"/>
+							<separator />
+						</hbox>
+						<hbox>
+							<div align="right" width="100px">
+								<label value="Senha: " />
+							</div>
+							<textbox width="200px"/>
+							<separator />
+						</hbox>
+						<separator height="40px"/>
+						
+					</vbox>
+				</groupbox>
+				
+			</div>
+		</window>
+	</div>
+</zk>
