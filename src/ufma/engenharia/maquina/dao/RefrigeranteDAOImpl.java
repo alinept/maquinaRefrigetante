@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ufma.engenharia.maquina.conexao.Conexao;
-import ufma.engenharia.maquina.dominio.Dinheiro;
 import ufma.engenharia.maquina.dominio.Refrigerante;
-import ufma.engenharia.maquina.enums.TipoDinheiro;
 
 public class RefrigeranteDAOImpl implements RefrigeranteDAO{
 
