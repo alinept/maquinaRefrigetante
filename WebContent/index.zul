@@ -8,7 +8,7 @@
 
 	<div align="center">
 		<separator height="30px" />
-		<window border="normal" width="60%" id="win">
+		<window border="normal" width="70%" id="win" use="ufma.engenharia.maquina.window.IndexWindow">
 			<style>
 				body { padding: 0 0;
 				background-image:url(${c:encodeURL('/images/background.png')
@@ -23,8 +23,11 @@
 					<hbox>
 						<vbox>
 							<separator height="20px" />
+							<hbox>
+							<separator width="20px"/>
 							<label value="Máquina de Refrigerantes"
 								style="font-size:30px; font-weight: bold; font-style:italic; align: center; text-shadow: 4px 4px 3px #CDC9C9" />
+							</hbox>
 						</vbox>
 					</hbox>
 					<separator bar="true" />
@@ -45,7 +48,18 @@
 										width="60px" height="100px" />
 									<image src="images/sprite.jpg"
 										width="100px" height="100px" />
+									<listbox id="listRefrigerantes" model="@{win.refris}" width="300px">
+										<listhead>
+											<listheader
+												label="Refrigerante" />
+											<listheader label="Preço" />
+										</listhead>
+										<listitem self="@{each=refrigerante}">
+											<listcell label="@{refrigerante.nome}" />
+											<listcell label="@{refrigerante.preco}" />
+										</listitem>
 
+									</listbox>
 								</hbox>
 							</div>
 							<separator height="5px"/>

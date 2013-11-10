@@ -2,64 +2,90 @@ package ufma.engenharia.maquina.fachada;
 
 import java.util.List;
 
+import ufma.engenharia.maquina.dao.DinheiroDAO;
+import ufma.engenharia.maquina.dao.DinheiroDAOImpl;
+import ufma.engenharia.maquina.dao.EstoqueDinheiroDAO;
+import ufma.engenharia.maquina.dao.EstoqueDinheiroDAOImpl;
+import ufma.engenharia.maquina.dao.EstoqueRefrigeranteDAO;
+import ufma.engenharia.maquina.dao.EstoqueRefrigeranteDAOImpl;
+import ufma.engenharia.maquina.dao.RefrigeranteDAO;
+import ufma.engenharia.maquina.dao.RefrigeranteDAOImpl;
+import ufma.engenharia.maquina.dao.VendaDAO;
+import ufma.engenharia.maquina.dao.VendaDAOImpl;
 import ufma.engenharia.maquina.dominio.Dinheiro;
 import ufma.engenharia.maquina.dominio.Refrigerante;
 import ufma.engenharia.maquina.dominio.Venda;
 
 public class MaquinaRefrigeranteFachadaImpl implements MaquinaRefrigeranteFachada{
 
+	private DinheiroDAO dinheiroDAO;
+	private EstoqueDinheiroDAO estoqueDinheiroDAO;
+	private EstoqueRefrigeranteDAO estoqueRefrigeranteDAO;
+	private RefrigeranteDAO refrigeranteDAO;
+	private VendaDAO vendaDAO;
+	
+	public MaquinaRefrigeranteFachadaImpl()
+	{
+		dinheiroDAO = new DinheiroDAOImpl();
+		estoqueDinheiroDAO = new EstoqueDinheiroDAOImpl();
+		estoqueRefrigeranteDAO = new EstoqueRefrigeranteDAOImpl();
+		refrigeranteDAO = new RefrigeranteDAOImpl();
+		vendaDAO = new VendaDAOImpl();
+	}
+	
 	@Override
 	public List<Dinheiro> retornaDinheiros() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return dinheiroDAO.findAll();
 	}
 
 	@Override
 	public boolean atualizaEstoqueDinheiro(Dinheiro dinheiro, int quantidade) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return estoqueDinheiroDAO.atualiza(dinheiro, quantidade);
 	}
 
 	@Override
 	public int retornaQuantidadeDinheiro(Dinheiro dinheiro) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return estoqueDinheiroDAO.retornaQuantidade(dinheiro);
 	}
 
 	@Override
 	public boolean atualizaEstoqueRefrigerante(Refrigerante refrigerante,
 			int quantidade, Double temperatura) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return estoqueRefrigeranteDAO.atualiza(refrigerante, quantidade, temperatura);
+	
 	}
 
 	@Override
 	public int retornaQuantidadeRefrigerante(Refrigerante refrigerante) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return estoqueRefrigeranteDAO.retornaQuantidade(refrigerante);
 	}
 
 	@Override
 	public double retornaTemperaturaRefrigerante(Refrigerante refrigerante) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return estoqueRefrigeranteDAO.retornaTemperatura(refrigerante);
 	}
 
 	@Override
 	public List<Refrigerante> retornaRefrigerantes() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return refrigeranteDAO.findAll();
 	}
 
 	@Override
 	public void salvarVenda(Refrigerante refrigerante, Double valor) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public List<Venda> recuperaVendas(Refrigerante refrigerante) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
