@@ -88,7 +88,6 @@
 								selectedItem="@{win.dinheiro}">
 								<listhead>
 									<listheader label="Dinheiro" />
-
 								</listhead>
 								<listitem self="@{each=dinheiro}">
 									<listcell label="@{dinheiro.valor}" />
@@ -99,6 +98,7 @@
 							<separator />
 
 						</hbox>
+						
 						<vbox>
 							<div align="right" width="100px">
 								<label value="Quantidade: " />
@@ -114,8 +114,19 @@
 							<separator />
 
 						</vbox>
+						
+						<separator width="15px"/>
+						<listbox id="listDinheiroRecebido"
+								model="@{win.dinheiroRecebido}" width="150px">
+								<listhead>
+									<listheader label="Dinheiro Recebido" />
 
+								</listhead>
+								<listitem self="@{each=dinheiro}">
+									<listcell label="@{dinheiro.valor}" />
+								</listitem>
 
+						</listbox>
 
 					</hbox>
 
