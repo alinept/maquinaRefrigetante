@@ -54,7 +54,7 @@ public class LoginWindow extends Window{
 			
 			if(admin != null)
 			{
-			//	Executions.sendRedirect("/manutencao/index.zul");
+				Executions.sendRedirect("/manutencao/index.zul");
 				Messagebox.show("Login efetuado com sucesso");
 			}else{
 				Messagebox.show("login ou senha incorretos");

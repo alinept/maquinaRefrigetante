@@ -30,6 +30,19 @@
 							</hbox>
 						</vbox>
 					</hbox>
+					<menubar>
+						<menu label="Atualizar Estoque">
+							<menupopup>
+								<menuitem label="Refrigerante"/>
+								<menuitem label="Dinheiro"/>
+							</menupopup>
+						</menu>
+						<menu label="Relatórios">
+							<menupopup>
+								<menuitem label="Vendas"/>
+							</menupopup>
+						</menu>
+					</menubar>
 					<separator bar="true" />
 				</div>
 				<separator height="20px"/>
