@@ -122,8 +122,8 @@
 									<listheader label="Dinheiro Recebido" />
 
 								</listhead>
-								<listitem self="@{each=dinheiro}">
-									<listcell label="@{dinheiro.valor}" />
+								<listitem self="@{each=dinheiroRecebido}">
+									<listcell label="@{dinheiroRecebido.valor}" />
 								</listitem>
 
 						</listbox>

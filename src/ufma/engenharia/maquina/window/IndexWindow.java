@@ -76,7 +76,10 @@ public class IndexWindow extends Window{
 		System.out.println(quantidadeDinheiro);
 		if(dinheiro !=null && quantidadeDinheiro!=0 )
 		{
-			dinheiroRecebido.add(dinheiro);
+			for(int i=0; i<quantidadeDinheiro;i++)
+			{
+				dinheiroRecebido.add(dinheiro);
+			}
 			dinheiro = new Dinheiro();
 			quantidadeDinheiro = 0;
 			
