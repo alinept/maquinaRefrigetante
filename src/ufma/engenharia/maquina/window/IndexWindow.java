@@ -91,9 +91,17 @@ public class IndexWindow extends Window{
 	
 	public void efetuarCompra()
 	{
-		if(refrigerante != null && dinheiroRecebido.size()>0)
+		List<Dinheiro> troco = new ArrayList<Dinheiro>();
+		if(refrigerante != null && dinheiroRecebido.size() > 0)
 		{
+			troco = maquinaFachada.calculaTroco(refrigerante, dinheiroRecebido);
 			
+			if(troco != null)
+			{
+				Messagebox.show("troco possivel");
+			}else{
+				Messagebox.show("Desculpe, não temos troco. Seu valor de R$"+maquinaFachada.valorTotal(dinheiroRecebido)+" será devolvido");
+			}
 		}else{
 			Messagebox.show("Preencha todos os campos");
 		}

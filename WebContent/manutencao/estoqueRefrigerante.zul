@@ -8,7 +8,7 @@
 
 	<div align="center">
 		<separator height="30px" />
-		<window border="normal" width="70%" height="300px" id="win" use="ufma.engenharia.maquina.window.EstoqueRefrigeranteWindow">
+		<window border="normal" width="70%" height="600px" id="win" use="ufma.engenharia.maquina.window.EstoqueRefrigeranteWindow">
 			<style>
 				body { padding: 0 0;
 				background-image:url(${c:encodeURL('/images/background.png')
@@ -34,8 +34,8 @@
 					<menubar>
 						<menu label="Atualizar Estoque">
 							<menupopup>
-								<menuitem label="Refrigerante" onClick=""/>
-								<menuitem label="Dinheiro" onClick=""/>
+								<menuitem label="Refrigerante" onClick="win.irAtualizarEstoqueRefrigerante()"/>
+								<menuitem label="Dinheiro" onClick="win.irAtualizarEstoqueDinheiro()"/>
 							</menupopup>
 						</menu>
 						<menu label="Relatórios">

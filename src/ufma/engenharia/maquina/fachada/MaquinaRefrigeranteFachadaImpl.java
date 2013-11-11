@@ -1,5 +1,7 @@
 package ufma.engenharia.maquina.fachada;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import ufma.engenharia.maquina.dao.AdministradorDAO;
@@ -17,6 +19,7 @@ import ufma.engenharia.maquina.dao.VendaDAOImpl;
 import ufma.engenharia.maquina.dominio.Administrador;
 import ufma.engenharia.maquina.dominio.Dinheiro;
 import ufma.engenharia.maquina.dominio.EstoqueDinheiro;
+import ufma.engenharia.maquina.dominio.EstoqueDinheiroComparator;
 import ufma.engenharia.maquina.dominio.EstoqueRefrigerante;
 import ufma.engenharia.maquina.dominio.Refrigerante;
 import ufma.engenharia.maquina.dominio.Venda;
@@ -127,33 +130,44 @@ public class MaquinaRefrigeranteFachadaImpl implements MaquinaRefrigeranteFachad
 	@Override
 	public List<Dinheiro> calculaTroco(Refrigerante refrigerante,
 			List<Dinheiro> dinheiroRecebido) {
+	
+		List<EstoqueDinheiro> dinheiros = new ArrayList<EstoqueDinheiro>();
+		List<Dinheiro> listaTroco = new ArrayList<Dinheiro>();
 		
-//		Carregar uma colecao de objetos estoque de moedas na ordem: 0,25; 0,5; 1; 2; 5; 10
-//		Carregar uma colecao de objetos estoque de refrigerantes
-//
-//		método recebe valor do troco a ser dado ao clinte: troco
-//		   
-//		   
-//		   for(Estoque estoque: ColecaoEstoque){
-//				if(estoque.quantidade){
-//				  trocoCorrente+= estoque.valor;
-//				  if(trocoCorrente<troco){
-//					while( trocoCorrente<troco){
-//					 trocoCorrente+=estoque.valor;
-//					}  
-//				  }
-//				  else if(trocoCorrente==troco) break;
-//				  
-//				  else{
-//					trocoCorrente-=estoque.valor;
-//				  }
-//				}
-//		   
-//		}
+		dinheiros = estoqueDinheiroDAO.recuperaEstoque();
+		double trocoCorrente = 0;
 		
 		double troco = valorTotal(dinheiroRecebido) - refrigerante.getPreco();
 		
-		return null;
+		EstoqueDinheiroComparator comparator = new EstoqueDinheiroComparator();
+		Collections.sort(dinheiros, comparator);
+		
+		for(EstoqueDinheiro estoqueDinheiro: dinheiros)
+		{
+			if(estoqueDinheiro.getQuantidade() > 0)
+			{
+				trocoCorrente += estoqueDinheiro.getDinheiro().getValor();
+				
+				if(trocoCorrente < troco)
+				{
+					while(trocoCorrente < troco && estoqueDinheiro.getQuantidade() > 0)
+					{
+						trocoCorrente += estoqueDinheiro.getDinheiro().getValor();
+						listaTroco.add(estoqueDinheiro.getDinheiro());
+					}
+				}
+				if(trocoCorrente == troco) break;
+				
+				if(trocoCorrente > troco ){
+					trocoCorrente -= estoqueDinheiro.getDinheiro().getValor();
+					listaTroco.remove(estoqueDinheiro.getDinheiro());
+					 
+				}
+			}
+		}
+		
+		if(valorTotal(listaTroco) == troco) return listaTroco;
+		else return null;
 	}
 
 	@Override

@@ -58,7 +58,6 @@ public class DinheiroDAOImpl implements DinheiroDAO{
 	public Dinheiro findByCodigo(int codigo) {
 
 		ResultSet rs = null;
-		Dinheiro dinheiro = new Dinheiro();
 		
 		String sql = "select * from dinheiro where codigo = "+codigo;
 		
@@ -75,7 +74,7 @@ public class DinheiroDAOImpl implements DinheiroDAO{
 				else d.setTipo(TipoDinheiro.Cedula);
 				d.setValor(rs.getDouble("valor"));
 				
-				return dinheiro;
+				return d;
 			}
 			
 		} catch (SQLException e) {

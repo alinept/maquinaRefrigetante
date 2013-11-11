@@ -6,6 +6,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import org.zkoss.zhtml.Messagebox;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zkplus.databind.AnnotateDataBinder;
 import org.zkoss.zkplus.databind.DataBinder;
 import org.zkoss.zul.Window;
@@ -62,6 +63,18 @@ public class EstoqueRefrigeranteWindow extends Window{
 				binder.loadAll();
 			}
 		}
+	}
+	
+	public void irAtualizarEstoqueDinheiro()
+	{
+		Executions.sendRedirect("/manutencao/estoqueDinheiro.zul");
+		binder.loadAll();
+	}
+	
+	public void irAtualizarEstoqueRefrigerante()
+	{
+		Executions.sendRedirect("/manutencao/estoqueRefrigerante.zul");
+		binder.loadAll();
 	}
 
 	public List<EstoqueRefrigerante> getEstoques() {
