@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import ufma.engenharia.maquina.dao.DinheiroDAO;
@@ -17,6 +18,7 @@ public DinheiroDAO dinheiroDAO;
 	
 	
 	@Test
+	@Ignore
 	public void retornaTodos()
 	{
 		dinheiroDAO = new DinheiroDAOImpl();
@@ -26,5 +28,18 @@ public DinheiroDAO dinheiroDAO;
 		
 		assertEquals(6, dinheiros.size());
 	}
+	
+	@Test
+	public void findByCodigo()
+	{
+		dinheiroDAO = new DinheiroDAOImpl();
+		Dinheiro dinheiro = new Dinheiro();
+		
+		dinheiro = dinheiroDAO.findByCodigo(1);
+		
+		assertNotNull(dinheiro);
+	}
+	
+	
 
 }

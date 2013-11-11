@@ -1,12 +1,19 @@
 package ufma.engenharia.maquina.test.dao;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
+import ufma.engenharia.maquina.dao.EstoqueDinheiroDAOImpl;
 import ufma.engenharia.maquina.dao.EstoqueRefrigeranteDAO;
 import ufma.engenharia.maquina.dao.EstoqueRefrigeranteDAOImpl;
+import ufma.engenharia.maquina.dominio.EstoqueDinheiro;
+import ufma.engenharia.maquina.dominio.EstoqueRefrigerante;
 import ufma.engenharia.maquina.dominio.Refrigerante;
 
 public class EstoqueRefrigeranteDAOTest {
@@ -45,6 +52,18 @@ public EstoqueRefrigeranteDAO estoqueRefrigeranteDAO;
 		
 		assertEquals(Double.valueOf(3), Double.valueOf(estoqueRefrigeranteDAO.retornaTemperatura(refri)));
 		
+	}
+	
+	@Test
+	public void recuperaEstoque()
+	{
+		estoqueRefrigeranteDAO = new EstoqueRefrigeranteDAOImpl();
+		
+		List<EstoqueRefrigerante> estoques = new ArrayList<EstoqueRefrigerante>();
+		
+		estoques = estoqueRefrigeranteDAO.recuperaEstoque();
+		
+		assertNotNull(estoques);
 	}
 
 }

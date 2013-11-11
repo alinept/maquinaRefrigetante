@@ -7,6 +7,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import org.zkoss.zhtml.Messagebox;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zkplus.databind.AnnotateDataBinder;
 import org.zkoss.zkplus.databind.DataBinder;
 import org.zkoss.zul.Window;
@@ -87,7 +88,30 @@ public class IndexWindow extends Window{
 			Messagebox.show("Preencha todos os campos do valor a pagar");
 		}
 	}
+	
+	public void efetuarCompra()
+	{
+		if(refrigerante != null && dinheiroRecebido.size()>0)
+		{
+			
+		}else{
+			Messagebox.show("Preencha todos os campos");
+		}
+	}
 
+	
+	public void irAtualizarEstoqueDinheiro()
+	{
+		Executions.sendRedirect("/manutencao/estoqueDinheiro.zul");
+		binder.loadAll();
+	}
+	
+	public void irAtualizarEstoqueRefrigerante()
+	{
+		Executions.sendRedirect("/manutencao/estoqueRefrigerante.zul");
+		binder.loadAll();
+	}
+	
 	public Refrigerante getRefrigerante() {
 		return refrigerante;
 	}

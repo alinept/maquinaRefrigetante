@@ -8,7 +8,7 @@
 
 	<div align="center">
 		<separator height="30px" />
-		<window border="normal" width="70%" height="300px" id="win" use="ufma.engenharia.maquina.window.LoginWindow">
+		<window border="normal" width="70%" height="300px" id="win" use="ufma.engenharia.maquina.window.EstoqueDinheiroWindow">
 			<style>
 				body { padding: 0 0;
 				background-image:url(${c:encodeURL('/images/background.png')
@@ -48,7 +48,44 @@
 				</div>
 				<separator height="20px"/>
 				<groupbox>
-				
+					<caption label="Atualizar Estoque Dinheiro" />
+					<separator height="10px" />
+					<vbox>
+						<listbox id="listEstoque" model="@{win.estoques}" width="300px" selectedItem="@{win.estoque}">
+										<listhead>
+											<listheader
+												label="Dinheiro" />
+											<listheader label="Quantidade" />
+										</listhead>
+										<listitem self="@{each=estoque}">
+											<listcell label="@{estoque.dinheiro.valor}" />
+											<listcell label="@{refrigerante.quantidade}" />
+										</listitem>
+
+						</listbox>
+						<hbox>
+							<div align="right" width="100px">
+								<label value="Dinheiro: " />
+							</div>
+							<textbox width="200px" value="@{win.estoque.dinheiro.valor }" disabled="true"/>
+							
+							<separator />
+						</hbox>
+						<hbox>
+							<div align="right" width="100px">
+								<label value="Quantidade: " />
+							</div>
+							<textbox width="200px" value="@{win.estoque.quantidade}"/>
+							<separator />
+						</hbox>
+						
+						<separator height="40px"/>
+						
+					</vbox>
+					<div align="center">
+						<button label="Atualizar" onClick="win.atualizar()"/>
+					</div>
+					
 					
 				</groupbox>
 				

@@ -54,4 +54,36 @@ public class DinheiroDAOImpl implements DinheiroDAO{
 		return dinheiros;
 	}
 
+	@Override
+	public Dinheiro findByCodigo(int codigo) {
+
+		ResultSet rs = null;
+		Dinheiro dinheiro = new Dinheiro();
+		
+		String sql = "select * from dinheiro where codigo = "+codigo;
+		
+		try {
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				Dinheiro d = new Dinheiro();
+				d.setCodigo(rs.getInt("codigo"));
+				if(rs.getInt("tipo")==1) d.setTipo(TipoDinheiro.Moeda);
+				else d.setTipo(TipoDinheiro.Cedula);
+				d.setValor(rs.getDouble("valor"));
+				
+				return dinheiro;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return null;
+	}
+
 }

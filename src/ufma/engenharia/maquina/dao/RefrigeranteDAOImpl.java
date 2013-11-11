@@ -51,5 +51,34 @@ public Connection con;
 		return refris;
 	}
 
+	@Override
+	public Refrigerante findByCodigo(int codigo) {
+		ResultSet rs = null;
+		
+		String sql = "select * from refrigerante where codigo = "+codigo;
+		
+		try {
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				Refrigerante r = new Refrigerante();
+				r.setCodigo(rs.getInt("codigo"));
+				r.setNome(rs.getString("nome"));
+				r.setPreco(rs.getDouble("preco"));
+				
+				return r;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return null;
+	}
+
 
 }

@@ -133,7 +133,7 @@
 				</groupbox>
 				<separator height="20px"/>
 				<div align="center">
-					<button label="Comprar"/>
+					<button label="Comprar" onClick="win.efetuarCompra()"/>
 				</div>
 				<separator height="20px"/>
 				<groupbox>

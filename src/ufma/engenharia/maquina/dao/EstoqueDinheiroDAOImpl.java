@@ -4,17 +4,22 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import ufma.engenharia.maquina.conexao.Conexao;
 import ufma.engenharia.maquina.dominio.Dinheiro;
+import ufma.engenharia.maquina.dominio.EstoqueDinheiro;
 
 public class EstoqueDinheiroDAOImpl implements EstoqueDinheiroDAO{
 
 	public Connection con;
+	public DinheiroDAO dinheiroDAO;
 	
 	public EstoqueDinheiroDAOImpl() {
 	 
 			con = Conexao.open();
+			dinheiroDAO = new DinheiroDAOImpl();
 	}
 	
 	@Override
@@ -60,5 +65,36 @@ public class EstoqueDinheiroDAOImpl implements EstoqueDinheiroDAO{
 		
 		return quantidade;
 	}
+
+	@Override
+	public List<EstoqueDinheiro> recuperaEstoque() {
+
+		ResultSet rs = null;
+		List<EstoqueDinheiro> estoque = new ArrayList<EstoqueDinheiro>();
+		
+		String sql = "select * from estoque_dinheiro";
+		
+		try {
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				EstoqueDinheiro d = new EstoqueDinheiro();
+				d.setQuantidade(rs.getInt("quantidade"));
+				d.setDinheiro(dinheiroDAO.findByCodigo(rs.getInt("id_dinheiro")));
+				
+				estoque.add(d);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}
+		
+		return estoque;
+	}
+	
 	
 }

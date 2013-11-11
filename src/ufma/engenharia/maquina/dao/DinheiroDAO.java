@@ -7,5 +7,6 @@ import ufma.engenharia.maquina.dominio.Dinheiro;
 public interface DinheiroDAO {
 	
 	List<Dinheiro> findAll();
+	Dinheiro findByCodigo(int codigo);
 
 }
