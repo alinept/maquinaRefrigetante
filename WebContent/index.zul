@@ -40,16 +40,16 @@
 
 							<div align="center">
 								<hbox>
-									<image src="images/coca.jpg"
-										width="80px" height="80px" onClick=""/>
-									<image src="images/guarana.jpg"
-										width="60px" height="100px" onClick=""/>
-									<image src="images/jesus.jpg"
-										width="60px" height="100px" onClick=""/>
-									<image src="images/sprite.jpg"
-										width="100px" height="100px" onClick=""/>
+<!-- 									<image src="images/coca.jpg" -->
+<!-- 										width="80px" height="80px" onClick=""/> -->
+<!-- 									<image src="images/guarana.jpg" -->
+<!-- 										width="60px" height="100px" onClick=""/> -->
+<!-- 									<image src="images/jesus.jpg" -->
+<!-- 										width="60px" height="100px" onClick=""/> -->
+<!-- 									<image src="images/sprite.jpg" -->
+<!-- 										width="100px" height="100px" onClick=""/> -->
 										
-									<listbox id="listRefrigerantes" model="@{win.refris}" width="300px">
+									<listbox id="listRefrigerantes" model="@{win.refris}" width="300px" selectedItem="@{win.refrigerante}">
 										<listhead>
 											<listheader
 												label="Refrigerante" />
@@ -79,18 +79,46 @@
 				<groupbox>
 					<caption label="Dinheiro Recebido" />
 					<separator height="10px" />
-					<vbox>
+					<hbox>
 						<hbox>
-							<div align="right" width="100px">
-								<label value="Moeda/Cédula: " />
-							</div>
-							<combobox width="200px"/>
+
+
+							<listbox id="listDinheiro"
+								model="@{win.listaDinheiro}" width="150px"
+								selectedItem="@{win.dinheiro}">
+								<listhead>
+									<listheader label="Dinheiro" />
+
+								</listhead>
+								<listitem self="@{each=dinheiro}">
+									<listcell label="@{dinheiro.valor}" />
+								</listitem>
+
+							</listbox>
+
 							<separator />
-							
+
 						</hbox>
-						
-						
-					</vbox>
+						<vbox>
+							<div align="right" width="100px">
+								<label value="Quantidade: " />
+							</div>
+							<textbox value="@{win.quantidadeDinheiro}" />
+
+							<separator />
+							<div align="right" width="100px">
+								<label value="" />
+							</div>
+							<button label="Add"
+								onClick="win.adicionarValorRecebido()" />
+							<separator />
+
+						</vbox>
+
+
+
+					</hbox>
+
 				</groupbox>
 				<separator height="20px"/>
 				<div align="center">

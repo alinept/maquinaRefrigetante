@@ -1,8 +1,5 @@
 package ufma.engenharia.maquina.window;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
@@ -12,7 +9,6 @@ import org.zkoss.zkplus.databind.AnnotateDataBinder;
 import org.zkoss.zkplus.databind.DataBinder;
 import org.zkoss.zul.Window;
 
-import ufma.engenharia.maquina.dao.AdministradorDAO;
 import ufma.engenharia.maquina.dominio.Administrador;
 import ufma.engenharia.maquina.fachada.MaquinaRefrigeranteFachada;
 import ufma.engenharia.maquina.fachada.MaquinaRefrigeranteFachadaImpl;
