@@ -2,6 +2,7 @@ package ufma.engenharia.maquina.fachada;
 
 import java.util.List;
 
+import ufma.engenharia.maquina.dominio.Administrador;
 import ufma.engenharia.maquina.dominio.Dinheiro;
 import ufma.engenharia.maquina.dominio.Refrigerante;
 import ufma.engenharia.maquina.dominio.Venda;
@@ -30,4 +31,11 @@ public interface MaquinaRefrigeranteFachada {
 	/*-----------Venda-------------*/
 	void salvarVenda(Refrigerante refrigerante, Double valor);
 	List<Venda> recuperaVendas(Refrigerante refrigerante); 
+	/*------------------------------------*/
+
+	/*-----------Administrador-------------*/
+	Administrador recuperaAdm(String login, String senha);
+	/*------------------------------------*/
+
+
 }

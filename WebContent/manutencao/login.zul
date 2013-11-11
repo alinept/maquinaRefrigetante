@@ -8,7 +8,7 @@
 
 	<div align="center">
 		<separator height="30px" />
-		<window border="normal" width="70%" height="300px" id="win">
+		<window border="normal" width="70%" height="300px" id="win" use="ufma.engenharia.maquina.window.LoginWindow">
 			<style>
 				body { padding: 0 0;
 				background-image:url(${c:encodeURL('/images/background.png')
@@ -41,19 +41,23 @@
 							<div align="right" width="100px">
 								<label value="Login: " />
 							</div>
-							<textbox width="200px"/>
+							<textbox width="200px" value="@{win.login}"/>
 							<separator />
 						</hbox>
 						<hbox>
 							<div align="right" width="100px">
 								<label value="Senha: " />
 							</div>
-							<textbox width="200px"/>
+							<textbox width="200px" value="@{win.senha}"/>
 							<separator />
 						</hbox>
 						<separator height="40px"/>
 						
 					</vbox>
+					<div align="center">
+						<button label="Ok" onClick="win.login()"/>
+					</div>
+					
 				</groupbox>
 				
 			</div>

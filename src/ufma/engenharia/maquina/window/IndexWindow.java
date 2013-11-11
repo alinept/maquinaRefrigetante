@@ -49,5 +49,23 @@ public class IndexWindow extends Window{
 		refris = maquinaFachada.retornaRefrigerantes();
 		binder.loadAll();
 	}
+
+	public Refrigerante getRefrigerante() {
+		return refrigerante;
+	}
+
+	public void setRefrigerante(Refrigerante refrigerante) {
+		this.refrigerante = refrigerante;
+	}
+
+	public List<Refrigerante> getRefris() {
+		return refris;
+	}
+
+	public void setRefris(List<Refrigerante> refris) {
+		this.refris = refris;
+	}
+	
+	
 		
 }

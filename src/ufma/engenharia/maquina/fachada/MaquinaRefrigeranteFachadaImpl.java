@@ -2,6 +2,8 @@ package ufma.engenharia.maquina.fachada;
 
 import java.util.List;
 
+import ufma.engenharia.maquina.dao.AdministradorDAO;
+import ufma.engenharia.maquina.dao.AdministradorDAOImpl;
 import ufma.engenharia.maquina.dao.DinheiroDAO;
 import ufma.engenharia.maquina.dao.DinheiroDAOImpl;
 import ufma.engenharia.maquina.dao.EstoqueDinheiroDAO;
@@ -12,6 +14,7 @@ import ufma.engenharia.maquina.dao.RefrigeranteDAO;
 import ufma.engenharia.maquina.dao.RefrigeranteDAOImpl;
 import ufma.engenharia.maquina.dao.VendaDAO;
 import ufma.engenharia.maquina.dao.VendaDAOImpl;
+import ufma.engenharia.maquina.dominio.Administrador;
 import ufma.engenharia.maquina.dominio.Dinheiro;
 import ufma.engenharia.maquina.dominio.Refrigerante;
 import ufma.engenharia.maquina.dominio.Venda;
@@ -23,6 +26,7 @@ public class MaquinaRefrigeranteFachadaImpl implements MaquinaRefrigeranteFachad
 	private EstoqueRefrigeranteDAO estoqueRefrigeranteDAO;
 	private RefrigeranteDAO refrigeranteDAO;
 	private VendaDAO vendaDAO;
+	private AdministradorDAO adminDAO;
 	
 	public MaquinaRefrigeranteFachadaImpl()
 	{
@@ -31,6 +35,7 @@ public class MaquinaRefrigeranteFachadaImpl implements MaquinaRefrigeranteFachad
 		estoqueRefrigeranteDAO = new EstoqueRefrigeranteDAOImpl();
 		refrigeranteDAO = new RefrigeranteDAOImpl();
 		vendaDAO = new VendaDAOImpl();
+		adminDAO = new AdministradorDAOImpl();
 	}
 	
 	@Override
@@ -87,6 +92,11 @@ public class MaquinaRefrigeranteFachadaImpl implements MaquinaRefrigeranteFachad
 	public List<Venda> recuperaVendas(Refrigerante refrigerante) {
 		
 		return null;
+	}
+
+	@Override
+	public Administrador recuperaAdm(String login, String senha) {
+		return adminDAO.recupera(login, senha);
 	}
 
 }
