@@ -34,8 +34,9 @@ public interface MaquinaRefrigeranteFachada {
 	/*------------------------------------*/
 	
 	/*-----------Venda-------------*/
-	void salvarVenda(Refrigerante refrigerante, Double valor);
+	boolean salvarVenda(Refrigerante refrigerante, Double valor);
 	List<Venda> recuperaVendas(Refrigerante refrigerante); 
+	List<Venda> recuperaTodasVendas();
 	boolean verificaPossibilidadeVenda(Refrigerante refrigerante);
 	List<Dinheiro> calculaTroco(Refrigerante refrigerante, List<Dinheiro> dinheiroRecebido);
 	double valorTotal(List<Dinheiro> dinheiro);

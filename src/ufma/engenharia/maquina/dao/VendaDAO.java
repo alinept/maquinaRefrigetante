@@ -7,6 +7,7 @@ import ufma.engenharia.maquina.dominio.Venda;
 
 public interface VendaDAO {
 	
-	public void salvar(Refrigerante refrigerante, Double valor);
+	public boolean salvar(Refrigerante refrigerante, Double valor);
 	public List<Venda> recuperaVendas(Refrigerante refrigerante); 
+	public List<Venda> recuperarTodasVendas();
 }

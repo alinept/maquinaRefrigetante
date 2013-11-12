@@ -116,24 +116,30 @@
 						</vbox>
 						
 						<separator width="15px"/>
-						<listbox id="listDinheiroRecebido"
+						<vbox>
+							<listbox id="listDinheiroRecebido"
 								model="@{win.dinheiroRecebido}" width="150px">
 								<listhead>
-									<listheader label="Dinheiro Recebido" />
+									<listheader
+										label="Dinheiro Recebido" />
 
 								</listhead>
-								<listitem self="@{each=dinheiroRecebido}">
-									<listcell label="@{dinheiroRecebido.valor}" />
+								<listitem
+									self="@{each=dinheiroRecebido}">
+									<listcell
+										label="@{dinheiroRecebido.valor}" />
 								</listitem>
 
-						</listbox>
-
+							</listbox>
+						</vbox>
 					</hbox>
 
 				</groupbox>
 				<separator height="20px"/>
 				<div align="center">
 					<button label="Comprar" onClick="win.efetuarCompra()"/>
+					<button label="Cancelar" onClick="win.cancelarCompra()"/>
+					
 				</div>
 				<separator height="20px"/>
 				<groupbox>

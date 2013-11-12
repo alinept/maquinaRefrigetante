@@ -88,15 +88,19 @@ public class MaquinaRefrigeranteFachadaImpl implements MaquinaRefrigeranteFachad
 	}
 
 	@Override
-	public void salvarVenda(Refrigerante refrigerante, Double valor) {
-		
-		
+	public boolean salvarVenda(Refrigerante refrigerante, Double valor) {
+		return vendaDAO.salvar(refrigerante, valor);
 	}
 
 	@Override
 	public List<Venda> recuperaVendas(Refrigerante refrigerante) {
+		return vendaDAO.recuperaVendas(refrigerante);
+	}
+	
+	@Override
+	public List<Venda> recuperaTodasVendas() {
 		
-		return null;
+		return vendaDAO.recuperarTodasVendas();
 	}
 
 	@Override

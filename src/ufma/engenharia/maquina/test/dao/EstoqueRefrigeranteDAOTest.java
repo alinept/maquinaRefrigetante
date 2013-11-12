@@ -9,10 +9,8 @@ import java.util.List;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import ufma.engenharia.maquina.dao.EstoqueDinheiroDAOImpl;
 import ufma.engenharia.maquina.dao.EstoqueRefrigeranteDAO;
 import ufma.engenharia.maquina.dao.EstoqueRefrigeranteDAOImpl;
-import ufma.engenharia.maquina.dominio.EstoqueDinheiro;
 import ufma.engenharia.maquina.dominio.EstoqueRefrigerante;
 import ufma.engenharia.maquina.dominio.Refrigerante;
 

@@ -107,6 +107,10 @@ public class IndexWindow extends Window{
 		}
 	}
 
+	public void cancelarCompra()
+	{
+		
+	}
 	
 	public void irAtualizarEstoqueDinheiro()
 	{
