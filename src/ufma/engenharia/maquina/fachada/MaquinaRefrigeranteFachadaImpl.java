@@ -147,6 +147,7 @@ public class MaquinaRefrigeranteFachadaImpl implements MaquinaRefrigeranteFachad
 			if(estoqueDinheiro.getQuantidade() > 0)
 			{
 				trocoCorrente += estoqueDinheiro.getDinheiro().getValor();
+				listaTroco.add(estoqueDinheiro.getDinheiro());
 				
 				if(trocoCorrente < troco)
 				{
@@ -165,7 +166,6 @@ public class MaquinaRefrigeranteFachadaImpl implements MaquinaRefrigeranteFachad
 				}
 			}
 		}
-		
 		if(valorTotal(listaTroco) == troco) return listaTroco;
 		else return null;
 	}
