@@ -40,7 +40,7 @@
 						</menu>
 						<menu label="Relatórios">
 							<menupopup>
-								<menuitem label="Vendas" onClick=""/>
+								<menuitem label="Vendas" onClick="win.irRelatorio()"/>
 							</menupopup>
 						</menu>
 					</menubar>

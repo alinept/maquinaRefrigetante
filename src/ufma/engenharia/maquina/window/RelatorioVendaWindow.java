@@ -1,5 +1,6 @@
 package ufma.engenharia.maquina.window;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.InitialContext;
@@ -11,24 +12,26 @@ import org.zkoss.zkplus.databind.AnnotateDataBinder;
 import org.zkoss.zkplus.databind.DataBinder;
 import org.zkoss.zul.Window;
 
-import ufma.engenharia.maquina.dominio.EstoqueRefrigerante;
+import ufma.engenharia.maquina.dominio.Dinheiro;
+import ufma.engenharia.maquina.dominio.Refrigerante;
+import ufma.engenharia.maquina.dominio.Venda;
 import ufma.engenharia.maquina.fachada.MaquinaRefrigeranteFachada;
 import ufma.engenharia.maquina.fachada.MaquinaRefrigeranteFachadaImpl;
 
-public class EstoqueRefrigeranteWindow extends Window{
-
-	/**
-	 * 
-	 */
+public class RelatorioVendaWindow extends Window{
+    
 	private static final long serialVersionUID = 1L;
+	
 	public Window win;
 	public DataBinder binder;
 	public InitialContext ctx;
-	public MaquinaRefrigeranteFachada maquinaFachada;
-	public List<EstoqueRefrigerante> estoques;
-	public EstoqueRefrigerante estoque;
+	public Venda venda;
+	public List<Venda> vendas;
 	
-	public EstoqueRefrigeranteWindow()
+	public MaquinaRefrigeranteFachada maquinaFachada;
+	
+	
+	public RelatorioVendaWindow()
 	{
 		try {
 			
@@ -44,27 +47,11 @@ public class EstoqueRefrigeranteWindow extends Window{
 	{
 		win = (Window) getFellow("win");
 		binder = new AnnotateDataBinder(win);
-		estoques = maquinaFachada.recuperaEstoqueRefrigerante();
+		vendas = new ArrayList<Venda>();
+		vendas = maquinaFachada.recuperaTodasVendas();
+		
 		binder.loadAll();
 	}
-
-	public void atualizar()
-	{
-		if(estoque != null)
-		{
-			if(estoque != null)
-			{
-				if(maquinaFachada.atualizaEstoqueRefrigerante(estoque.getRefrigerante(), estoque.getQuantidade(), estoque.getTemperatura()))
-				{
-					Messagebox.show("Estoque atualizado com sucesso");
-				}else{
-					Messagebox.show("Erro ao atualizar estoque");
-				}
-				binder.loadAll();
-			}
-		}
-	}
-	
 	public void irAtualizarEstoqueDinheiro()
 	{
 		Executions.sendRedirect("/manutencao/estoqueDinheiro.zul");
@@ -76,20 +63,29 @@ public class EstoqueRefrigeranteWindow extends Window{
 		Executions.sendRedirect("/manutencao/estoqueRefrigerante.zul");
 		binder.loadAll();
 	}
-
+	
 	public void irRelatorio()
 	{
-		Executions.sendRedirect("/manutencao/estoqueRefrigerante.zul");
+		Executions.sendRedirect("/manutencao/relatorioVenda.zul");
 		binder.loadAll();
 	}
-	
-	public List<EstoqueRefrigerante> getEstoques() {
-		return estoques;
+
+	public Venda getVenda() {
+		return venda;
 	}
 
-	public void setEstoques(List<EstoqueRefrigerante> estoques) {
-		this.estoques = estoques;
+	public void setVenda(Venda venda) {
+		this.venda = venda;
+	}
+
+	public List<Venda> getVendas() {
+		return vendas;
+	}
+
+	public void setVendas(List<Venda> vendas) {
+		this.vendas = vendas;
 	}
 	
 	
+
 }

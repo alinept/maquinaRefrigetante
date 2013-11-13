@@ -74,6 +74,12 @@ public class EstoqueDinheiroWindow extends Window{
 		binder.loadAll();
 	}
 	
+	public void irRelatorio()
+	{
+		Executions.sendRedirect("/manutencao/estoqueRefrigerante.zul");
+		binder.loadAll();
+	}
+	
 	public List<EstoqueDinheiro> getEstoques() {
 		return estoques;
 	}

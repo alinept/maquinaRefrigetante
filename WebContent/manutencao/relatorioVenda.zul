@@ -1,0 +1,85 @@
+<?page title="MAQUINA DE REFRIGERANTES" contentType="text/html;charset=UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:h="http://www.w3.org/1999/xhtml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+	<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+
+
+	<div align="center">
+		<separator height="30px" />
+		<window border="normal" width="70%" id="win" use="ufma.engenharia.maquina.window.RelatorioVendaWindow">
+			<style>
+				body { padding: 0 0;
+				background-image:url(${c:encodeURL('/images/background.png')
+				}); /* 0 padding on top and bottom and 0 padding on
+				right and left */ }
+			</style>
+
+
+			<div align="left">
+				<div>
+
+					<hbox>
+						<vbox>
+							<separator height="20px" />
+							<hbox>
+								<separator width="20px" />
+								<label value="Máquina de Refrigerantes"
+									style="font-size:30px; font-weight: bold; font-style:italic; align: center; text-shadow: 4px 4px 3px #CDC9C9" />
+							</hbox>
+
+							<separator height="20px" />
+							<menubar>
+								<menu label="Atualizar Estoque">
+									<menupopup>
+										<menuitem label="Refrigerante"
+											onClick="win.irAtualizarEstoqueRefrigerante()" />
+										<menuitem label="Dinheiro"
+											onClick="win.irAtualizarEstoqueDinheiro()" />
+									</menupopup>
+								</menu>
+								<menu label="Relatórios">
+									<menupopup>
+										<menuitem label="Vendas"
+											onClick="win.irRelatorio()" />
+									</menupopup>
+								</menu>
+							</menubar>
+							<separator bar="true" />
+						</vbox>
+					</hbox>
+					<separator bar="true" />
+				</div>
+				<separator height="30px" />
+				<groupbox>
+					<caption label="Escolha o refrigerante" />
+					<separator height="10px" />
+					<vbox>
+
+							<div align="center">
+								<hbox>
+										
+									<listbox id="listVendas" model="@{win.vendas}" width="300px" >
+										<listhead>
+											<listheader
+												label="Refrigerante" />
+											<listheader label="Valor" />
+										</listhead>
+										<listitem self="@{each=venda}">
+											<listcell label="@{venda.refrigerante.nome}" />
+											<listcell label="@{venda.valorTotal}" />
+										</listitem>
+
+									</listbox>
+								</hbox>
+							</div>
+							<separator height="5px"/>
+				
+						</hbox>
+					</vbox>
+				</groupbox>
+		
+		</window>
+	</div>
+</zk>
