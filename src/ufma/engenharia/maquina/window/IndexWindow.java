@@ -103,9 +103,30 @@ public class IndexWindow extends Window{
 			
 					if(troco != null)
 					{
+						if(maquinaFachada.salvarVenda(refrigerante, maquinaFachada.valorTotal(dinheiroRecebido)))
+						{
+							Messagebox.show("Compra realizada com sucesso ! Retire seu refrigerante");
+							
+							for(Dinheiro dinheiro : dinheiroRecebido)
+							{
+								int qnt = maquinaFachada.retornaQuantidadeDinheiro(dinheiro);
+								maquinaFachada.atualizaEstoqueDinheiro(dinheiro, qnt + 1);
+							}
+							
+							for(Dinheiro dinheiro : troco)
+							{
+								int qnt = maquinaFachada.retornaQuantidadeDinheiro(dinheiro);
+								maquinaFachada.atualizaEstoqueDinheiro(dinheiro, qnt - 1);
+							}
+							
+							int qntRefri = maquinaFachada.retornaQuantidadeRefrigerante(refrigerante);
+							maquinaFachada.atualizaEstoqueRefrigerante(refrigerante, qntRefri -1 , maquinaFachada.retornaTemperaturaRefrigerante(refrigerante));
 						
+						}else{
+							Messagebox.show("Erro ao efetuar compra");
+						}
 					}else{
-						Messagebox.show("Desculpe, n�o temos troco. Seu valor de R$"+maquinaFachada.valorTotal(dinheiroRecebido)+" ser� devolvido");
+						Messagebox.show("Desculpe, nao temos troco. Seu valor de R$"+maquinaFachada.valorTotal(dinheiroRecebido)+" ser� devolvido");
 					}
 				}else{
 					Messagebox.show("Insira mais moedas, valor insuficiente");

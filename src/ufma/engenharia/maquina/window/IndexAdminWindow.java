@@ -1,22 +1,13 @@
 package ufma.engenharia.maquina.window;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zkplus.databind.AnnotateDataBinder;
 import org.zkoss.zkplus.databind.DataBinder;
 import org.zkoss.zul.Window;
 
-import ufma.engenharia.maquina.dominio.Dinheiro;
-import ufma.engenharia.maquina.dominio.Refrigerante;
-import ufma.engenharia.maquina.dominio.Venda;
-import ufma.engenharia.maquina.fachada.MaquinaRefrigeranteFachada;
-import ufma.engenharia.maquina.fachada.MaquinaRefrigeranteFachadaImpl;
 
 
 public class IndexAdminWindow extends Window{
