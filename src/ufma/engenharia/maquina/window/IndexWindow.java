@@ -92,15 +92,26 @@ public class IndexWindow extends Window{
 	public void efetuarCompra()
 	{
 		List<Dinheiro> troco = new ArrayList<Dinheiro>();
+		
 		if(refrigerante != null && dinheiroRecebido.size() > 0)
 		{
-			troco = maquinaFachada.calculaTroco(refrigerante, dinheiroRecebido);
-			
-			if(troco != null)
+			if(maquinaFachada.verificaPossibilidadeVenda(refrigerante))
 			{
-				Messagebox.show("troco possivel");
+				if(refrigerante.getPreco() <= maquinaFachada.valorTotal(dinheiroRecebido))
+				{
+					troco = maquinaFachada.calculaTroco(refrigerante, dinheiroRecebido);
+			
+					if(troco != null)
+					{
+						
+					}else{
+						Messagebox.show("Desculpe, nï¿½o temos troco. Seu valor de R$"+maquinaFachada.valorTotal(dinheiroRecebido)+" serï¿½ devolvido");
+					}
+				}else{
+					Messagebox.show("Insira mais moedas, valor insuficiente");
+				}
 			}else{
-				Messagebox.show("Desculpe, não temos troco. Seu valor de R$"+maquinaFachada.valorTotal(dinheiroRecebido)+" será devolvido");
+				Messagebox.show("Desculpe, mas estamos sem este refrigerante no estoque");
 			}
 		}else{
 			Messagebox.show("Preencha todos os campos");
